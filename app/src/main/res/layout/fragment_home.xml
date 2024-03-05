@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C0C0C0"
+        android:background="#C0D9D9"
         app:title="首页"
         app:titleTextColor="#FF000000" />
 
