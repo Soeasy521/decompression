@@ -51,11 +51,12 @@
             <EditText
                 android:id="@+id/et_username"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@null"
                 android:hint="请输入用户名"
                 android:textSize="14sp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                tools:ignore="HardcodedText" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -6,19 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-        <FrameLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottomNavigationView"
-            android:background="#C0C0C0"/>
+    <!-- 新增的解压方式文本框 -->
+    <TextView
+        android:id="@+id/unzipMethodTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="解压方式"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:background="@color/blue2"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="#FFFFFF"
-            app:menu="@menu/navigation" />
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationView"
+        android:layout_below="@id/unzipMethodTextView"
+        android:background="#FFFFFF" >
+
+        <include layout="@layout/activity_pop_bubbles" />
+
+        <include layout="@layout/activity_meditation_bubble" />
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:menu="@menu/navigation" />
 
 </RelativeLayout>

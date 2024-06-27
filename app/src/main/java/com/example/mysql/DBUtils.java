@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 
 //数据库工具类：连接数据库用、获取数据库数据用
-class DBUtils {
+public class DBUtils {
     private static String driver = "com.mysql.jdbc.Driver";// MySql驱动
     private static String user = "root";// 用户名
     private static String password = "lxy262626";// 密码
