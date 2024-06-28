@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UpdatePwdActivity extends AppCompatActivity {
+public class    UpdatePwdActivity extends AppCompatActivity {
     private EditText et_new_password;
     private EditText et_confirm_password;
     //private EditText btn_update_password;

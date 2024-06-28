@@ -67,11 +67,12 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/tv_update_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="修改密码"
-            android:textSize="15dp"/>
+            android:textSize="15dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -105,6 +106,7 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/tv_system_notice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -133,6 +135,7 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/tv_privacy_policy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -161,6 +164,7 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/tv_about_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -189,6 +193,7 @@
         android:paddingRight="10dp">
 
         <TextView
+            android:id="@+id/tv_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
