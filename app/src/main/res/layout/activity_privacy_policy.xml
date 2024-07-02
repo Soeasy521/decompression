@@ -4,101 +4,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/dialog_privacy_bg"
-    >
+    android:background="@drawable/dialog_privacy_bg">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/privacy_title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_gravity="center"/>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
+        android:fadingEdgeLength="60dp"
+        android:requiresFadingEdge="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/ll_btn_bottom"
-            android:layout_marginBottom="35dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            tools:ignore="UnknownId">
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="用户使用协议"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp"
-
-                />
-
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="15dp"
-                android:fadingEdgeLength="60dp"
-                android:requiresFadingEdge="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="false"
-                    android:text="在使用我们的服务之前，请仔细阅读这些条款和条件。
-就这些条款和条件而言：应用程序是指您在任何电子设备上下载的由公司提供的软件程序。设备是指可以访问服务的任何设备，例如计算机、手机或数字平板电脑。
-服务是指应用程序。条款和条件（也称为“条款”）是指构成您与公司之间关于使用服务的完整协议的这些条款和条件。本条款和条件协议是在条款和条件模板的帮助下创建的。
-第三方社交媒体服务是指由第三方提供的任何服务或内容（包括数据、信息、产品或服务），这些服务或内容可能由服务显示、包含或提供。
-您是指访问或使用服务的个人，或代表该个人访问或使用服务的公司或其他法律实体（如适用）。
-致谢"
-                    android:textColor="@color/colorBlack"
-
-                    />
-            </ScrollView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/BtnView"
+        <TextView
+            android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:gravity="bottom">
+            android:layout_marginTop="10dp"
+            android:singleLine="false"
+            android:text="@string/privacy_content"
+            android:textColor="@color/colorBlack" />
+    </ScrollView>
 
-            <Button
-                android:id="@+id/btn_exit"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:background="@color/colorWhite"
-                android:text="@string/privacy_exit"
-                android:textColor="@color/colorGray"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/BtnView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-            <View
-                android:layout_width="0.25dp"
-                android:layout_height="40dp"
-                android:background="@color/colorGray" />
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:text="@string/privacy_exit"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-            <Button
-                android:id="@+id/btn_enter"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:background="@color/colorWhite"
-                android:text="@string/privacy_agree"
-                android:textColor="@color/colorOrange"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <View
+            android:layout_width="0.25dp"
+            android:layout_height="40dp"
+            android:background="@color/colorGray"/>
 
-        </LinearLayout>
-    </RelativeLayout>
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:text="@string/privacy_agree"
+            android:textColor="@color/colorOrange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
 </LinearLayout>
