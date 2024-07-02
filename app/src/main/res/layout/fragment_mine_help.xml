@@ -37,7 +37,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/Button"
+        android:id="@+id/help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交"

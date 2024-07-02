@@ -118,13 +118,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/next"/>
+            android:src="@drawable/next" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:backdround="#f5f5f5"/>
+            android:backdround="#f5f5f5" />
 
     </RelativeLayout>
 
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/next"/>
+            android:src="@drawable/next" />
 
         <View
             android:layout_width="match_parent"

@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Decompression"
         android:usesCleartextTraffic="true">
-<!--        <meta-data-->
-<!--            android:name="com.google.android.actions"-->
-<!--            android:resource="@xml/item_decompression_method" />-->
-
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.actions" -->
+        <!-- android:resource="@xml/item_decompression_method" /> -->
         <activity
             android:name=".UpdatePwdActivity"
             android:exported="true" />
