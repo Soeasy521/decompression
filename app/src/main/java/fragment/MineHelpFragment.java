@@ -10,10 +10,10 @@ package fragment;
         import androidx.fragment.app.Fragment;
         import com.example.decompression.R;
 
-public class PrivacyPolicyFragment extends Fragment {
+public class MineHelpFragment extends Fragment {
 
     private TextView tvContent;
-    private Button helpButton;
+    private Button help;
 
     @Nullable
     @Override
@@ -23,10 +23,10 @@ public class PrivacyPolicyFragment extends Fragment {
 
         // Initialize views
         tvContent = view.findViewById(R.id.tv_content);
-        helpButton = view.findViewById(R.id.help);
+        help = view.findViewById(R.id.help);
 
         // Set onClickListeners
-        helpButton.setOnClickListener(new View.OnClickListener() {
+        help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvContent.setText("提交成功！");
