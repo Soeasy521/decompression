@@ -3,64 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/drawable/dialog_privacy_bg.xml" value="0.1735" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_login.xml" value="0.16458333333333333" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_meditation_bubble.xml" value="0.264" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_music.xml" value="0.25" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_pop_bubbles.xml" value="0.16458333333333333" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_privacy_policy.xml" value="0.264" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_register.xml" value="0.16458333333333333" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/activity_update_pwd.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/fragment_community.xml" value="0.1625" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/fragment_home.xml" value="0.1625" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/fragment_mine.xml" value="0.4" />
-        <entry key="..\:/Users/31907/Desktop/decompression/app/src/main/res/layout/fragment_mine_help.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/code/decompression/app/src/main/res/drawable/login_et_bg.xml" value="0.1265" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_meditation_bubble.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_pop_bubbles.xml" value="0.335" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_privacy_policy.xml" value="0.2037037037037037" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_register.xml" value="0.335" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/activity_update_pwd.xml" value="0.335" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_community.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_mine.xml" value="0.335" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_mine_help.xml" value="0.2037037037037037" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/item_decompression_method.xml" value="0.20729166666666668" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/layout.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/layout/layout2.xml" value="0.25" />
-        <entry key="..\:/code/decompression/app/src/main/res/menu/navigation.xml" value="0.25" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1705" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/drawable/dialog_privacy_bg.xml" value="0.19" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_login.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_main.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_meditation_bubble.xml" value="0.13905775075987842" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_music.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_pop_bubbles.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_privacy_policy.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_register.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/activity_update_pwd.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_community.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_home.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_mine.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_mine_aboutapp.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_mine_help.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_mine_notification.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/fragment_system_notices.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/item_notice.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/item_notices.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/layout/list_notification.xml" value="0.2859375" />
-        <entry key="..\:/decompression/decompression/app/src/main/res/menu/navigation.xml" value="0.2859375" />
+        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_mine_aboutapp.xml" value="0.26510416666666664" />
+        <entry key="..\:/code/decompression/app/src/main/res/layout/fragment_system_notices.xml" value="0.26510416666666664" />
+        <entry key="..\:/code/decompression/app/src/main/res/layout/item_notice.xml" value="0.26510416666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
