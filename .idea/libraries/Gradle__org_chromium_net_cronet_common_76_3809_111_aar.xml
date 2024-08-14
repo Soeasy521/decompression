@@ -7,6 +7,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/429c8385739f8bb61ccf3cd9a365f0fe/transformed/jetified-cronet-common-76.3809.111/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/429c8385739f8bb61ccf3cd9a365f0fe/transformed/jetified-cronet-common-76.3809.111/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/429c8385739f8bb61ccf3cd9a365f0fe/transformed/jetified-cronet-common-76.3809.111/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0f5501f7847b4180e0654f2b9319f207/transformed/jetified-cronet-common-76.3809.111/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0f5501f7847b4180e0654f2b9319f207/transformed/jetified-cronet-common-76.3809.111/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0f5501f7847b4180e0654f2b9319f207/transformed/jetified-cronet-common-76.3809.111/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

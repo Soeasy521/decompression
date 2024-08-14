@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="bottomNavigationView" type="id">bottomNavigationView</item>
+    <item name="tv_system_notices" type="id" />
+    <item name="tv_help_feedback" type="id" />
+    <item name="app_description" type="id" />
+    <item name="developer_name" type="id" />
+    <item name="developer_email" type="id" />
+    <item name="notice" type="id" />
 </resources>

@@ -7,6 +7,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c6e62b5435fa8f1d67dec954d6a00ad1/transformed/jetified-cronet-api-76.3809.111/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c6e62b5435fa8f1d67dec954d6a00ad1/transformed/jetified-cronet-api-76.3809.111/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c6e62b5435fa8f1d67dec954d6a00ad1/transformed/jetified-cronet-api-76.3809.111/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3ecf3e5cf26d09d297de80d6414352b0/transformed/jetified-cronet-api-76.3809.111/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3ecf3e5cf26d09d297de80d6414352b0/transformed/jetified-cronet-api-76.3809.111/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3ecf3e5cf26d09d297de80d6414352b0/transformed/jetified-cronet-api-76.3809.111/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.chromium.net/cronet-api/76.3809.111/b187fc1a24e3294f662d3c9d40c20ed248e04a28/cronet-api-76.3809.111-javadoc.jar!/" />

@@ -12,8 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.decompression.AboutappActivity;
 import com.example.decompression.LoginActivity;
+import com.example.decompression.PrivacyPolicyActivity;
 import com.example.decompression.R;
+import com.example.decompression.SystemNoticesFragment;
 import com.example.decompression.UpdatePwdActivity;
 
 public class MineFragment<UserInfo> extends Fragment {
@@ -22,6 +25,10 @@ public class MineFragment<UserInfo> extends Fragment {
     private TextView tv_username;
     private TextView tv_nickname;
     private TextView tv_update_pwd;
+    private TextView tv_system_notices;
+    private TextView tv_privacy_policy;
+    private TextView tv_about_app;
+    private TextView tv_help;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,12 +40,52 @@ public class MineFragment<UserInfo> extends Fragment {
         tv_username = rootView.findViewById(R.id.tv_username);
         tv_nickname = rootView.findViewById(R.id.tv_nickname);
         tv_update_pwd = rootView.findViewById(R.id.tv_update_pwd);
+        tv_system_notices = rootView.findViewById(R.id.tv_system_notices);
+        tv_privacy_policy = rootView.findViewById(R.id.tv_privacy_policy);
+        tv_about_app = rootView.findViewById(R.id.tv_about_app);
+        tv_help = rootView.findViewById(R.id.tv_help);
 
         // Set click listener for "修改密码" button
         tv_update_pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UpdatePwdActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener for "系统通知"
+        tv_system_notices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SystemNoticesFragment.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener for "隐私政策"
+        tv_privacy_policy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PrivacyPolicyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener for "关于 APP"
+        tv_about_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AboutappActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener for "帮助与反馈"
+        tv_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MineHelpFragment.class);
                 startActivity(intent);
             }
         });
