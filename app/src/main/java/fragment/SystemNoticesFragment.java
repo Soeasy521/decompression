@@ -1,4 +1,4 @@
-package com.example.decompression;
+package fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.decompression.NoticeAdapter;
+import com.example.decompression.R;
 
 import java.util.ArrayList;
 import java.util.List;

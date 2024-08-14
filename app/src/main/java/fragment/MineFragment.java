@@ -12,11 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.decompression.AboutappActivity;
 import com.example.decompression.LoginActivity;
 import com.example.decompression.PrivacyPolicyActivity;
 import com.example.decompression.R;
-import com.example.decompression.SystemNoticesFragment;
 import com.example.decompression.UpdatePwdActivity;
 
 public class MineFragment<UserInfo> extends Fragment {
@@ -76,7 +74,7 @@ public class MineFragment<UserInfo> extends Fragment {
         tv_about_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AboutappActivity.class);
+                Intent intent = new Intent(getActivity(), AboutappFragment.class);
                 startActivity(intent);
             }
         });
