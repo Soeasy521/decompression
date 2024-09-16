@@ -6,119 +6,91 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
+import java.util.Objects;
 
 //数据库工具类：连接数据库用、获取数据库数据用
 public class DBUtils {
     private static String driver = "com.mysql.jdbc.Driver";// MySql驱动
-    private static String user = "root";// 用户名
-    private static String password = "lxy262626";// 密码
+    private static String url = "jdbc:mysql://192.168.1.77:3306/depression";
+    private static String user = "deUser";// 用户名
+    private static String password = "depression321";// 密码
 
-    private static Connection getConn(String dbname){
+    private static Connection getConn() {
         Connection connection = null;
-        try{
+
+        try {
             Class.forName(driver);// 动态加载类
-            String ip = "172.17.9.108"; // 写成本机地址，不能写成localhost
             // 尝试建立到给定数据库URL的连接
-            connection = DriverManager.getConnection("jdbc:mysql://" + ip
-                    + ":3306/" + dbname, user, password);
-        }catch (Exception e){
-            Log.i("DBUtils","Exception");
+            connection = DriverManager.getConnection(url, user, password);
+        } catch (Exception e) {
+            Log.i("DBUtils", Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
         }
         return connection;
     }
 
-    public static HashMap<String, Object> getAllInfo(){
-        HashMap<String, Object> map = new HashMap<>();
-        // 根据数据库名称，建立连接
-        Connection connection = getConn("test");
+    public static boolean IsExist(String name) {
+        Connection connection = getConn();
         try {
-            String sql = "select * from users;";
-            if (connection != null){// connection不为null表示与数据库建立了连接
+            String sql = "select userId from users where userName = '"  + name +"'";
+            if (connection != null) {// connection不为null表示与数据库建立了连接
                 PreparedStatement ps = connection.prepareStatement(sql);
-                if (ps != null){
+                if (ps != null) {
                     // 执行sql查询语句并返回结果集
                     ResultSet rs = ps.executeQuery();
-                    if (rs != null){
-
-                        while (rs.next()){
-//                            String rsm = rs.getMetaData().getColumnName(1);
-//                            Log.i("DBUtils","记录rsm ：" + rsm);
-                            // 通过字段检索
-                            String id  = rs.getString("nums");
-                            String name = rs.getString("name");
-                            String passw = rs.getString("passw");
-                            int age  = rs.getInt("age");
-                            String adress = rs.getString("adress");
-                            Log.i("DBUtils","记录全 ：" + id + name + passw + age + adress);
-                            map.put(id,","+name+","+passw+","+age+","+adress);
-                        }
+                    if (rs != null) {
                         connection.close();
                         ps.close();
-                        return  map;
-                    }else {
-                        Log.i("DBUtils","结果为空");
-                        return null; }
-                }else {
-                    Log.i("DBUtils","sql");
-                    return  null; }
-            }else {
-                Log.i("DBUtils","连接失败");
-                return  null; }
-        }catch (Exception e){
+                        return true;
+                    } else {
+                        Log.i("DBUtils", "结果为空");
+                        return false;
+                    }
+                } else {
+                    Log.i("DBUtils", "sql");
+                    return false;
+                }
+            } else {
+                Log.i("DBUtils", "连接失败");
+                return false;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.e("DBUtils","异常：" + e.getMessage());
-            return null;
+            Log.e("DBUtils", "异常：" + e.getMessage());
+            return false;
         }
-
     }
-    public static HashMap<String, Object> getInfoByName(String names){
-        HashMap<String, Object> map = new HashMap<>();
-        // 根据数据库名称，建立连接
-        Connection connection = getConn("test");
+
+    public static boolean InsertUserInfo(String name, String pwd) {
+        Connection connection = getConn();
         try {
-            // mysql简单的查询语句。这里是根据users表的name字段来查询某条记录
-            String sql = "select * from users where name = ? ;";
-            if (connection != null){  // connection不为null表示与数据库建立了连接
+            String sql = "insert into users(userName,passWord) values('" + name + "','" + pwd + "')";
+            if (connection != null) {// connection不为null表示与数据库建立了连接
                 PreparedStatement ps = connection.prepareStatement(sql);
-                if (ps != null){
-                    // 设置上面的sql语句中的？的值为name
-//                    ps.setString(1, names);
-                    ps.setNString(1,names);
+                if (ps != null) {
                     // 执行sql查询语句并返回结果集
-                    ResultSet rs = ps.executeQuery();
-//                    rs.beforeFirst();
-                    if (rs != null && rs.next()){
-                        Log.i("DBUtils","记录 count ：" + rs.getMetaData().getColumnCount());
-                        rs.previous();
-                        while (rs.next()){
-                            // 通过字段检索
-                            String id  = rs.getString("nums");
-                            String name = rs.getString("name");
-                            String passw = rs.getString("passw");
-                            int age  = rs.getInt("age");
-                            String adress = rs.getString("adress");
-                            Log.i("DBUtils","记录全 ：" + id + name + passw + age + adress);
-                            map.put(id,","+name+","+passw+","+age+","+adress);
-                        }
+                    int rs = ps.executeUpdate();
+                    if (rs > 0) {
                         connection.close();
                         ps.close();
-                        return  map;
-                    }else {
-                        Log.i("DBUtils","结果为空");
-                        return null; }
-                }else {
-                    Log.i("DBUtils","sql");
-                    return  null; }
-            }else {
-                Log.i("DBUtils","连接失败");
-                return  null; }
-        }catch (Exception e){
+                        return true;
+                    } else {
+                        Log.i("DBUtils", "结果为空");
+                        return false;
+                    }
+                } else {
+                    Log.i("DBUtils", "sql");
+                    return false;
+                }
+            } else {
+                Log.i("DBUtils", "连接失败");
+                return false;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-            Log.e("DBUtils","异常：" + e.getMessage());
-            return null;
+            Log.e("DBUtils", "异常：" + e.getMessage());
+            return false;
         }
-
     }
+
 }

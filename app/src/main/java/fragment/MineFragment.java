@@ -38,7 +38,7 @@ public class MineFragment<UserInfo> extends Fragment {
         tv_username = rootView.findViewById(R.id.tv_username);
         tv_nickname = rootView.findViewById(R.id.tv_nickname);
         tv_update_pwd = rootView.findViewById(R.id.tv_update_pwd);
-        tv_system_notices = rootView.findViewById(R.id.tv_system_notices);
+        tv_system_notices = rootView.findViewById(R.id.tv_system_notice);
         tv_privacy_policy = rootView.findViewById(R.id.tv_privacy_policy);
         tv_about_app = rootView.findViewById(R.id.tv_about_app);
         tv_help = rootView.findViewById(R.id.tv_help);

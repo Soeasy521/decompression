@@ -1,0 +1,98 @@
+<!-- res/layout/activity_meditation_bubble.xml -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewActivityIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo" /> <!-- 使用代表冥想或泡泡的图标 -->
+
+        <TextView
+            android:id="@+id/textViewActivityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="冥想练习"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewActivityDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="放松心情，深度呼吸，开启心灵之旅。"
+            android:textSize="14sp" />
+
+        <!-- 可以添加更多代表活动特点的UI元素，例如进度条、动画等 -->
+
+        <!-- 可以添加更多代表活动特点的UI元素，例如进度条、动画等 -->
+
+        <Button
+            android:id="@+id/buttonStartActivity"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="开始解压" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 使用代表戳泡泡的图标 -->
+
+        <ImageView
+            android:id="@+id/imageViewBubbleIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textViewBubbleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="戳泡泡"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBubbleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="轻触屏幕，享受戳破泡泡的快感，释放压力。"
+            android:textSize="14sp" />
+
+        <!-- 为了增加趣味性，可以考虑加入一个小的预览区域模拟泡泡被戳破的效果 -->
+
+        <Button
+            android:id="@+id/buttonStartPopBubbles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="开始戳泡泡" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

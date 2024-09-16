@@ -11,11 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#C0D9D9"
-        app:title="首页"
+        app:title="解压方式"
         app:titleTextColor="#FF000000" />
 
-    <include layout="@layout/activity_meditation_bubble"/>
-
-    <include layout="@layout/activity_pop_bubbles" />
+    <include layout="@layout/activity_relieve_stress"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
