@@ -7,4 +7,16 @@
     <item name="developer_name" type="id" />
     <item name="developer_email" type="id" />
     <item name="notice" type="id" />
+    <item name="tv_article_title" type="id" />
+    <item name="tv_article_content" type="id" />
+    <item name="tv_article_date" type="id" />
+    <item name="tv_article_likes" type="id" />
+    <item name="iv_like" type="id" />
+    <item name="lv_comments" type="id" />
+    <item name="btn_add_comment" type="id" />
+    <item name="et_comment_content" type="id" />
+    <item name="tv_commenter" type="id" />
+    <item name="tv_comment_content" type="id" />
+    <item name="tv_comment_date" type="id" />
+    <item name="tv_article_comments" type="id" />
 </resources>

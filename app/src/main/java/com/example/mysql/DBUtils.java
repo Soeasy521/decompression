@@ -1,19 +1,44 @@
 package com.example.mysql;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //数据库工具类：连接数据库用、获取数据库数据用
 public class DBUtils {
+    private static final String TAG = "DBUtils";
     private static String driver = "com.mysql.jdbc.Driver";// MySql驱动
-    private static String url = "jdbc:mysql://192.168.1.77:3306/depression";
-    private static String user = "deUser";// 用户名
-    private static String password = "depression321";// 密码
+    private static String url = "jdbc:mysql://172.23.105.110:3306/decompression";
+    private static String user = "root";// 用户名
+    private static String password = "lxy262626";// 密码
+
+    private static final String TABLE_ARTICLES = "article";
+    private static final String TABLE_COMMENTS = "comment";
+    private static final String TABLE_USERS = "users";
+
+//    private static final String DATABASE_NAME = "decompression.db";
+//    private static final int DATABASE_VERSION = 1;
+//    private static final String TABLE_ARTICLES = "article";
+//    private static final String TABLE_COMMENTS = "comment";
+//    private static final String COLUMN_ARTICLE_ID = "articleId";
+//    private static final String COLUMN_USER_ID = "userId";
+//    private static final String COLUMN_ARTICLE_TITLE = "articleTitle";
+//    private static final String COLUMN_ARTICLE_CONTENT = "articleContent";
+//    private static final String COLUMN_ARTICLE_COMMENT = "articleComment";
+//    private static final String COLUMN_ARTICLE_DATE = "articleDate";
+//    private static final String COLUMN_ARTICLE_LIKES = "articleLike";
+//    private static final String COLUMN_COMMENT_ID = "commentId";
+//    private static final String COLUMN_COMMENT_DATE = "commentDate";
+//    private static final String COLUMN_COMMENT_CONTENT = "commentContent";
+
 
     private static Connection getConn() {
         Connection connection = null;
@@ -93,4 +118,81 @@ public class DBUtils {
         }
     }
 
+    public static class Comment {
+        private int userId;
+        private String commentContent;
+        private String commentDate;
+
+        public Comment(int userId, String commentContent, String commentDate) {
+            this.userId = userId;
+            this.commentContent = commentContent;
+            this.commentDate = commentDate;
+        }
+
+        public int getUserId() {
+            return userId;
+        }
+
+        public String getCommentContent() {
+            return commentContent;
+        }
+
+        public String getCommentDate() {
+            return commentDate;
+        }
+    }
+
+    private static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    public static boolean likeArticle(Context context, int articleId) {
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement("UPDATE article SET articleLike = articleLike + 1 WHERE articleId = ?")) {
+            pstmt.setInt(1, articleId);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            Log.e(TAG, "Error liking article", e);
+            return false;
+        }
+    }
+
+    public static boolean addComment(Context context, int userId, int articleId, String content) {
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO comment (userId, articleId, commentContent, commentDate) VALUES (?, ?, ?, NOW())")) {
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, articleId);
+            pstmt.setString(3, content);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            Log.e(TAG, "Error adding comment", e);
+            return false;
+        }
+    }
+
+    public static List<Comment> getComments(Context context, int articleId) {
+        List<Comment> comments = new ArrayList<>();
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement("SELECT userId, commentContent, commentDate FROM comment WHERE articleId = ?")) {
+            pstmt.setInt(1, articleId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                int count = 0;
+                while (rs.next()) {
+                    int userId = rs.getInt("userId");
+                    String content = rs.getString("commentContent");
+                    String date = rs.getString("commentDate");
+
+                    Log.d(TAG, "UserId: " + userId + ", Content: " + content + ", Date: " + date);
+                    comments.add(new Comment(userId, content, date));
+                    count++;
+                }
+                Log.d(TAG, "Total comments fetched: " + count);
+            }
+        } catch (SQLException e) {
+            Log.e(TAG, "Error getting comments", e);
+        }
+        return comments;
+    }
 }
+
+
