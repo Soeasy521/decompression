@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CommunityFragment">
-
-
+    tools:context="fragment.CommunityFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -23,9 +21,6 @@
             app:titleTextColor="#FF000000"
             app:elevation="4dp" />
 
-<!--            app:titleGravity="center_horizontal"-->
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -39,14 +34,33 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tv_article_title"
-                android:layout_width="wrap_content"
+            <!-- 添加文章标题 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="文章标题"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tv_article_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="文章标题"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <!-- 添加跳转按钮 -->
+                <Button
+                    android:id="@+id/btn_publish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="写文章"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/blue2"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_article_content"

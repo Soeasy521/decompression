@@ -8,47 +8,47 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-//数据库工具类：连接数据库用、获取数据库数据用
 public class DBUtils {
     private static final String TAG = "DBUtils";
-    private static String driver = "com.mysql.jdbc.Driver";// MySql驱动
-    private static String url = "jdbc:mysql://172.23.105.110:3306/decompression";
-    private static String user = "root";// 用户名
-    private static String password = "lxy262626";// 密码
+    private static String driver = "com.mysql.jdbc.Driver"; // MySQL驱动
+    private static String url = "jdbc:mysql://172.23.135.221:3306/decompression";
+    private static String user = "root"; // 用户名
+    private static String password = "liujiao1012"; // 密码
 
     private static final String TABLE_ARTICLES = "article";
     private static final String TABLE_COMMENTS = "comment";
     private static final String TABLE_USERS = "users";
 
-//    private static final String DATABASE_NAME = "decompression.db";
-//    private static final int DATABASE_VERSION = 1;
-//    private static final String TABLE_ARTICLES = "article";
-//    private static final String TABLE_COMMENTS = "comment";
-//    private static final String COLUMN_ARTICLE_ID = "articleId";
-//    private static final String COLUMN_USER_ID = "userId";
-//    private static final String COLUMN_ARTICLE_TITLE = "articleTitle";
-//    private static final String COLUMN_ARTICLE_CONTENT = "articleContent";
-//    private static final String COLUMN_ARTICLE_COMMENT = "articleComment";
-//    private static final String COLUMN_ARTICLE_DATE = "articleDate";
-//    private static final String COLUMN_ARTICLE_LIKES = "articleLike";
-//    private static final String COLUMN_COMMENT_ID = "commentId";
-//    private static final String COLUMN_COMMENT_DATE = "commentDate";
-//    private static final String COLUMN_COMMENT_CONTENT = "commentContent";
+    private static volatile DBUtils instance;
 
+    private DBUtils() {}
+
+    public static synchronized DBUtils getInstance(Context context) {
+        if (instance == null) {
+            synchronized (DBUtils.class) {
+                if (instance == null) {
+                    instance = new DBUtils();
+                }
+            }
+        }
+        return instance;
+    }
 
     private static Connection getConn() {
         Connection connection = null;
 
         try {
-            Class.forName(driver);// 动态加载类
+            Class.forName(driver); // 动态加载类
             // 尝试建立到给定数据库URL的连接
             connection = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
-            Log.i("DBUtils", Objects.requireNonNull(e.getMessage()));
+            Log.i(TAG, Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
         }
         return connection;
@@ -57,31 +57,26 @@ public class DBUtils {
     public static boolean IsExist(String name) {
         Connection connection = getConn();
         try {
-            String sql = "select userId from users where userName = '"  + name +"'";
-            if (connection != null) {// connection不为null表示与数据库建立了连接
+            String sql = "SELECT userId FROM " + TABLE_USERS + " WHERE userName = ?";
+            if (connection != null) {
                 PreparedStatement ps = connection.prepareStatement(sql);
-                if (ps != null) {
-                    // 执行sql查询语句并返回结果集
-                    ResultSet rs = ps.executeQuery();
-                    if (rs != null) {
-                        connection.close();
-                        ps.close();
-                        return true;
-                    } else {
-                        Log.i("DBUtils", "结果为空");
-                        return false;
-                    }
+                ps.setString(1, name);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    connection.close();
+                    ps.close();
+                    return true;
                 } else {
-                    Log.i("DBUtils", "sql");
+                    Log.i(TAG, "结果为空");
                     return false;
                 }
             } else {
-                Log.i("DBUtils", "连接失败");
+                Log.i(TAG, "连接失败");
                 return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("DBUtils", "异常：" + e.getMessage());
+            Log.e(TAG, "异常：" + e.getMessage());
             return false;
         }
     }
@@ -89,31 +84,27 @@ public class DBUtils {
     public static boolean InsertUserInfo(String name, String pwd) {
         Connection connection = getConn();
         try {
-            String sql = "insert into users(userName,passWord) values('" + name + "','" + pwd + "')";
-            if (connection != null) {// connection不为null表示与数据库建立了连接
+            String sql = "INSERT INTO " + TABLE_USERS + " (userName, passWord) VALUES (?, ?)";
+            if (connection != null) {
                 PreparedStatement ps = connection.prepareStatement(sql);
-                if (ps != null) {
-                    // 执行sql查询语句并返回结果集
-                    int rs = ps.executeUpdate();
-                    if (rs > 0) {
-                        connection.close();
-                        ps.close();
-                        return true;
-                    } else {
-                        Log.i("DBUtils", "结果为空");
-                        return false;
-                    }
+                ps.setString(1, name);
+                ps.setString(2, pwd);
+                int rs = ps.executeUpdate();
+                if (rs > 0) {
+                    connection.close();
+                    ps.close();
+                    return true;
                 } else {
-                    Log.i("DBUtils", "sql");
+                    Log.i(TAG, "结果为空");
                     return false;
                 }
             } else {
-                Log.i("DBUtils", "连接失败");
+                Log.i(TAG, "连接失败");
                 return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("DBUtils", "异常：" + e.getMessage());
+            Log.e(TAG, "异常：" + e.getMessage());
             return false;
         }
     }
@@ -142,38 +133,34 @@ public class DBUtils {
         }
     }
 
-    private static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
-    }
-
     public static boolean likeArticle(Context context, int articleId) {
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement("UPDATE article SET articleLike = articleLike + 1 WHERE articleId = ?")) {
+        try (Connection conn = getConn();
+             PreparedStatement pstmt = conn.prepareStatement("UPDATE " + TABLE_ARTICLES + " SET articleLike = articleLike + 1 WHERE articleId = ?")) {
             pstmt.setInt(1, articleId);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            Log.e(TAG, "Error liking article", e);
+            Log.e(TAG, "点赞文章出错", e);
             return false;
         }
     }
 
     public static boolean addComment(Context context, int userId, int articleId, String content) {
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO comment (userId, articleId, commentContent, commentDate) VALUES (?, ?, ?, NOW())")) {
+        try (Connection conn = getConn();
+             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + TABLE_COMMENTS + " (userId, articleId, commentContent, commentDate) VALUES (?, ?, ?, NOW())")) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, articleId);
             pstmt.setString(3, content);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            Log.e(TAG, "Error adding comment", e);
+            Log.e(TAG, "添加评论出错", e);
             return false;
         }
     }
 
     public static List<Comment> getComments(Context context, int articleId) {
         List<Comment> comments = new ArrayList<>();
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement("SELECT userId, commentContent, commentDate FROM comment WHERE articleId = ?")) {
+        try (Connection conn = getConn();
+             PreparedStatement pstmt = conn.prepareStatement("SELECT userId, commentContent, commentDate FROM " + TABLE_COMMENTS + " WHERE articleId = ?")) {
             pstmt.setInt(1, articleId);
             try (ResultSet rs = pstmt.executeQuery()) {
                 int count = 0;
@@ -186,13 +173,34 @@ public class DBUtils {
                     comments.add(new Comment(userId, content, date));
                     count++;
                 }
-                Log.d(TAG, "Total comments fetched: " + count);
+                Log.d(TAG, "共获取评论数: " + count);
             }
         } catch (SQLException e) {
-            Log.e(TAG, "Error getting comments", e);
+            Log.e(TAG, "获取评论出错", e);
         }
         return comments;
     }
+
+    public static boolean publishArticle(Context context, int userId, String title, String content) {
+        String date = getCurrentDate(); // 获取当前日期
+        try (Connection conn = getConn();
+             PreparedStatement pstmt = conn.prepareStatement(
+                     "INSERT INTO " + TABLE_ARTICLES + " (userId, articleTitle, articleContent, articleDate) VALUES (?, ?, ?, ?)")) {
+
+            pstmt.setInt(1, userId);
+            pstmt.setString(2, title);
+            pstmt.setString(3, content);
+            pstmt.setString(4, date);
+
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            Log.e(TAG, "发布文章出错", e);
+            return false;
+        }
+    }
+
+    private static String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return dateFormat.format(new Date());
+    }
 }
-
-

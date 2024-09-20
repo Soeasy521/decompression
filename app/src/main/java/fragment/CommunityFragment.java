@@ -1,6 +1,7 @@
 package fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.decompression.PublishFragment;
 import com.example.decompression.R;
 import com.example.mysql.DBUtils;
 
@@ -34,6 +36,7 @@ public class CommunityFragment extends Fragment {
     private ListView lv_comments;
     private EditText et_comment_content;
     private Button btn_add_comment;
+    private Button btn_publish;
 
     private int articleId = 1; // 示例中使用固定的articleId，实际情况请根据需要获取
     private int userId = 1; // 示例中使用固定的用户ID，实际情况请根据需要获取
@@ -53,6 +56,7 @@ public class CommunityFragment extends Fragment {
         lv_comments = view.findViewById(R.id.lv_comments);
         et_comment_content = view.findViewById(R.id.et_comment_content);
         btn_add_comment = view.findViewById(R.id.btn_add_comment);
+        btn_publish = view.findViewById(R.id.btn_publish); // 新增发布按钮初始化
 
         // 设置文章详情
         setArticleDetails();
@@ -76,6 +80,14 @@ public class CommunityFragment extends Fragment {
                 } else {
                     addComment(commentContent);
                 }
+            }
+        });
+
+        // 新增发布按钮点击事件
+        btn_publish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToPublishActivity();
             }
         });
 
@@ -118,6 +130,11 @@ public class CommunityFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "评论失败，请重试", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void navigateToPublishActivity() {
+        // 启动新的活动（PublishActivity）
+        startActivity(new Intent(getActivity(), PublishFragment.class));
     }
 
     private void loadComments() {
