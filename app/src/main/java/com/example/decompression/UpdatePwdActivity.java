@@ -1,5 +1,6 @@
 package com.example.decompression;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.decompression.LoginActivity;
 import com.example.decompression.R;
 
 public class UpdatePwdActivity extends AppCompatActivity {
@@ -53,8 +55,10 @@ public class UpdatePwdActivity extends AppCompatActivity {
 
         if (isUpdated) {
             Toast.makeText(UpdatePwdActivity.this, "密码修改成功", Toast.LENGTH_SHORT).show();
-            // 可以在这里执行其他操作，例如关闭当前活动或跳转到其他页面
-            finish();
+            // 跳转到登录页面
+            Intent intent = new Intent(UpdatePwdActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish(); // 关闭当前活动
         } else {
             Toast.makeText(UpdatePwdActivity.this, "密码修改失败", Toast.LENGTH_SHORT).show();
         }
