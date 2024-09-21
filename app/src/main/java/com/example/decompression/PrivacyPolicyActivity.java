@@ -1,12 +1,11 @@
 package com.example.decompression;
-        import android.annotation.SuppressLint;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.fragment.app.FragmentTransaction;
-        import android.widget.TextView;
-        import fragment.MineHelpFragment;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
     private TextView tv_content;
@@ -18,10 +17,12 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_policy);
 
+        // Initialize views
         tv_content = findViewById(R.id.tv_content);
         btn_exit = findViewById(R.id.btn_exit);
         btn_enter = findViewById(R.id.btn_enter);
 
+        // Set onClickListeners
         btn_exit.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -38,11 +39,5 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
                 // Handle enter button click
             }
         });
-
-
-        // Load the fragment
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.help, new MineHelpFragment());
-        transaction.commit();
     }
 }

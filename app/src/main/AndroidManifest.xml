@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.decompression">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,6 +38,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".PrivacyPolicyActivity"/>
+        <activity android:name="fragment.AboutappFragment"/>
+        <activity android:name="fragment.SystemNoticesFragment"/>
+        <activity android:name="fragment.PublishFragment"
+            tools:ignore="Instantiatable" />
+
+        <activity android:name="fragment.CommunityFragment"
+            tools:ignore="Instantiatable" />
+
+
     </application>
 
 </manifest>

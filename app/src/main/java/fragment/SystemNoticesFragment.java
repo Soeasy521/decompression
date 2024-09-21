@@ -48,8 +48,16 @@ public class SystemNoticesFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         // 添加一些示例数据
-        notices.add("2023-07-26: 更新了隐私政策");
-        notices.add("2023-07-25: 新功能发布");
+        notices.add("2023-11-26: 更新了隐私政策");
+        notices.add("2023-10-25: 新功能发布");
+        notices.add("2023-09-09: 新功能发布");
+        notices.add("2023-08-25: 新功能发布");
+        notices.add("2023-05-25: 新功能发布");
+        notices.add("2022-12-05: 新功能发布");
+        notices.add("2022-01-25: 新功能发布");
+        notices.add("2019-07-25: 新功能发布");
+        notices.add("2018-07-25: 新功能发布");
+        notices.add("2017-07-25: 新功能发布");
         adapter.notifyDataSetChanged();
     }
 }

@@ -11,11 +11,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.decompression.LoginActivity;
 import com.example.decompression.PrivacyPolicyActivity;
 import com.example.decompression.R;
 import com.example.decompression.UpdatePwdActivity;
+import fragment.SystemNoticesFragment; // 导入 NoticesFragment
 
 public class MineFragment<UserInfo> extends Fragment {
 
@@ -23,7 +26,7 @@ public class MineFragment<UserInfo> extends Fragment {
     private TextView tv_username;
     private TextView tv_nickname;
     private TextView tv_update_pwd;
-    private TextView tv_system_notices;
+    private TextView tv_system_notice;
     private TextView tv_privacy_policy;
     private TextView tv_about_app;
     private TextView tv_help;
@@ -38,7 +41,7 @@ public class MineFragment<UserInfo> extends Fragment {
         tv_username = rootView.findViewById(R.id.tv_username);
         tv_nickname = rootView.findViewById(R.id.tv_nickname);
         tv_update_pwd = rootView.findViewById(R.id.tv_update_pwd);
-        tv_system_notices = rootView.findViewById(R.id.tv_system_notice);
+        tv_system_notice = rootView.findViewById(R.id.tv_system_notice);
         tv_privacy_policy = rootView.findViewById(R.id.tv_privacy_policy);
         tv_about_app = rootView.findViewById(R.id.tv_about_app);
         tv_help = rootView.findViewById(R.id.tv_help);
@@ -53,11 +56,10 @@ public class MineFragment<UserInfo> extends Fragment {
         });
 
         // Set click listener for "系统通知"
-        tv_system_notices.setOnClickListener(new View.OnClickListener() {
+        tv_system_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SystemNoticesFragment.class);
-                startActivity(intent);
+                navigateToNoticesFragment();
             }
         });
 
@@ -83,8 +85,7 @@ public class MineFragment<UserInfo> extends Fragment {
         tv_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MineHelpFragment.class);
-                startActivity(intent);
+                navigateToHelpFragment();
             }
         });
 
@@ -114,13 +115,29 @@ public class MineFragment<UserInfo> extends Fragment {
         return rootView;
     }
 
+    private void navigateToHelpFragment() {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content, new MineHelpFragment());
+        fragmentTransaction.addToBackStack(null); // 添加到返回栈，以便用户可以返回
+        fragmentTransaction.commit();
+    }
+
+    private void navigateToNoticesFragment() {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content, new SystemNoticesFragment());
+        fragmentTransaction.addToBackStack(null); // 添加到返回栈，以便用户可以返回
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        //设置用户数据
-//        UserInfo.userInfo = UserInfo.getUserInfo();
-//        tv_username.setText(userInfo.getUsername());
-//        tv_nickname.setText(userInfo.getNickname());
+        // 设置用户数据
+        // UserInfo userInfo = UserInfo.getUserInfo();
+        // tv_username.setText(userInfo.getUsername());
+        // tv_nickname.setText(userInfo.getNickname());
     }
 }

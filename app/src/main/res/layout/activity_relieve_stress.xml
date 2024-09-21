@@ -18,7 +18,7 @@
             android:id="@+id/imageViewActivityIcon"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/logo" /> <!-- 使用代表冥想或泡泡的图标 -->
+            android:src="@drawable/think" /> <!-- 使用代表冥想或泡泡的图标 -->
 
         <TextView
             android:id="@+id/textViewActivityTitle"
@@ -65,7 +65,7 @@
             android:id="@+id/imageViewBubbleIcon"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/bubbles" />
 
         <TextView
             android:id="@+id/textViewBubbleTitle"

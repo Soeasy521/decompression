@@ -38,7 +38,7 @@
                 android:src="@drawable/login"/>
             
             <EditText
-                android:id="@+id/et_new_password"
+                android:id="@+id/et_new_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
@@ -64,7 +64,7 @@
                 android:src="@drawable/login"/>
 
             <EditText
-                android:id="@+id/et_confirm_password"
+                android:id="@+id/et_confirm_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
@@ -76,7 +76,7 @@
         
         
         <Button
-            android:id="@+id/btn_update_password"
+            android:id="@+id/btn_update_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

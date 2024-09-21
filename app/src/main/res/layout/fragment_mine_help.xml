@@ -1,57 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText">
-    android:gravity="center"
     android:orientation="vertical"
-
-    <TextView
-        android:id="@+id/textView0"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:text="帮助与反馈"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="2dp" />
+    android:padding="16dp">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="406dp"
-        android:layout_height="236dp"
-        android:layout_marginTop="60dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="请输入您的文字描述："
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        android:id="@+id/et_feedback_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="反馈标题"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_feedback_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="反馈内容"
+        android:inputType="textMultiLine"
+        android:minLines="5" />
 
     <Button
-        android:id="@+id/help"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_submit_feedback"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="提交"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="296dp"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="403dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="60dp"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="提交反馈" />
+</LinearLayout>
